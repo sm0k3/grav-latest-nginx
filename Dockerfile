@@ -19,9 +19,10 @@ COPY config/php.ini /etc/php7/conf.d/zzz_custom.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #Add Files
+RUN mkdir -p /tmp
 COPY setup /tmp/setup
 RUN sh /tmp/setup/filesetup.sh
-RUN su - www-data -s /bin/bash -c 'bash /tmp/setup/setup.sh'
+RUN sh /tmp/setup/setup.sh
 WORKDIR /var/www/html
 EXPOSE 80 443
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
