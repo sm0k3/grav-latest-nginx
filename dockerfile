@@ -97,5 +97,5 @@ RUN \
   && rm -rf /var/www/*
 COPY root /
 COPY setup /tmp/setup
-RUN bash /tmp/setup/setup.sh
+RUN su - www-data -s /bin/bash -c 'bash /tmp/setup/setup.sh'
 EXPOSE 80 443
