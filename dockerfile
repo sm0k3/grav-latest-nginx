@@ -9,7 +9,7 @@ RUN set -x \
 # Install runtime dependancies
 RUN \
   apk add --no-cache --virtual .run-deps \
-  curl zlib tar make libxml2 readline freetype openssl libjpeg-turbo libpng libmcrypt libwebp icu
+  curl zlib tar make libxml2 readline freetype openssl libjpeg-turbo libpng libmcrypt libwebp icu git
 
 RUN \
   # Install build dependancies
@@ -97,5 +97,5 @@ RUN \
   && rm -rf /var/www/*
 COPY root /
 COPY setup /tmp/setup
-RUN su - www-data -s /bin/bash -c 'bash /tmp/setup/setup.sh'
+RUN bash /tmp/setup/filesetup.sh
 EXPOSE 80 443

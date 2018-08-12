@@ -5,3 +5,8 @@ services:
     ports:
       - '8080:80'
       - '8443:443'
+    volumes:
+      - 'data:/srv/grav-data'
+volumes:
+  data:
+    external: true
