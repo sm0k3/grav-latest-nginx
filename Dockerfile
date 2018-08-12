@@ -20,7 +20,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #Add Files
 COPY setup /tmp/setup
-RUN bash /tmp/setup/filesetup.sh
+RUN sh /tmp/setup/filesetup.sh
 RUN su - www-data -s /bin/bash -c 'bash /tmp/setup/setup.sh'
 WORKDIR /var/www/html
 EXPOSE 80 443
