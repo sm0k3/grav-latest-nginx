@@ -8,5 +8,5 @@ services:
     volumes:
       - 'grav-data:/srv/grav-data'
 volumes:
-  data:
+  grav-data:
     external: true
