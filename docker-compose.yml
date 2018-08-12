@@ -9,4 +9,4 @@ services:
       - 'grav-data:/srv/grav-data'
 volumes:
   grav-data:
-    external: true
+    
