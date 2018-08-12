@@ -12,7 +12,7 @@ RUN \
   curl zlib tar make libxml2 readline freetype openssl libjpeg-turbo libpng libmcrypt libwebp icu git
 
 RUN \
-  # Install build dependancies
+  # Install build dependancies first
   apk add --no-cache --virtual .build-deps \
   build-base re2c file readline-dev autoconf binutils bison \
   libxml2-dev curl-dev freetype-dev openssl-dev libjpeg-turbo-dev libpng-dev \
