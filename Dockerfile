@@ -100,3 +100,6 @@ COPY root /
 COPY setup /tmp/setup
 RUN bash /tmp/setup/filesetup.sh
 EXPOSE 80 443
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
