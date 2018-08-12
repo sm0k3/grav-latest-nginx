@@ -1,4 +1,5 @@
 #! /bin/bash
+mkdir -p /tmp
 cd /tmp
 git clone -b master https://github.com/getgrav/grav.git
 mv ./grav/user /srv/grav-data/user
