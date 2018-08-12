@@ -3,10 +3,5 @@ services:
   gravweb:
     build: .
     ports:
-      - '8080:80'
-      - '8443:443'
-    volumes:
-      - 'grav-data:/srv/grav-data'
-volumes:
-  grav-data:
-    
+      - '80'
+      - '443'

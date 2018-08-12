@@ -1,5 +1,6 @@
 FROM ej52/alpine-nginx
 LABEL maintainer Sm0k3 "admin@svalbard.cf"
+VOLUME [/srv/grav-data]
 
 RUN set -x \
   # create session dir and set owner to www-data
