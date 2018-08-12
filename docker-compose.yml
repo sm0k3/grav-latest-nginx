@@ -3,5 +3,6 @@ services:
   gravweb:
     build: .
     ports:
-      - '80'
-      - '443'
+      - '8080:80'
+      - '8443:443'
+    volumes: []
