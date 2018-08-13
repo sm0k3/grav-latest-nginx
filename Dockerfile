@@ -4,9 +4,9 @@ LABEL Maintainer="sm0k3 <sm0k3@svalbard.cf>" \
 VOLUME /srv/grav-data
 
 # Install packages
-RUN apk --no-cache add git php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
+RUN apk --no-cache add git php7 php7-fpm php7-zip php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
-    php7-mbstring php7-gd nginx supervisor curl
+    php7-mbstring php7-gd php7-session php7-simplexml php7-yaml php7-opcache php7-apcu nginx supervisor curl
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -18,11 +18,10 @@ COPY config/php.ini /etc/php7/conf.d/zzz_custom.ini
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+RUN curl -sS https://getcomposer.org/installer | php && mv -f composer.phar /bin/composer
 #Add Files
-RUN mkdir -p /tmp
-COPY setup /tmp/setup
-RUN sh /tmp/setup/filesetup.sh
-RUN sh /tmp/setup/setup.sh
+COPY setup/setup.sh /srv/setup.sh
+RUN sh /srv/setup.sh
 WORKDIR /var/www/html
 EXPOSE 80 443
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
