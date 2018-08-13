@@ -2,7 +2,7 @@
 
 #Config Opts Down change these unless you know what your doing
 WEBUSER="nginx"
-WEBGROuP="nginx"
+WEBGROUP="nginx"
 PersistantDIR="/srv/grav-data"
 WEBDIR="/var/www/html"
 RUNFILE="$PersistantDIR/user/.run"
