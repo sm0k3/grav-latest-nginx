@@ -7,7 +7,7 @@ LABEL Maintainer="sm0k3 <sm0k3@svalbard.cf>" \
 ARG PHP_VER="7.1.20"
 
 # Environment variables
-ENV BUILD_PACKAGES="wget tar make gcc g++ zlib-dev libressl-dev pcre-dev fcgi-dev jpeg-dev libmcrypt-dev bzip2-dev curl-dev libpng-dev libxslt-dev postgresql-dev perl-dev file acl-dev libedit-dev icu-dev icu-libs" \
+ENV BUILD_PACKAGES="wget curl tar make gcc g++ zlib-dev libressl-dev pcre-dev fcgi-dev jpeg-dev libmcrypt-dev bzip2-dev curl-dev libpng-dev libxslt-dev postgresql-dev perl-dev file acl-dev libedit-dev icu-dev icu-libs" \
     ESSENTIAL_PACKAGES="nginx libressl pcre zlib supervisor sed re2c m4 ca-certificates py-pip" \
     UTILITY_PACKAGES="bash vim" \
     PHP_VER=${PHP_VER} \
