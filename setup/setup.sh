@@ -20,6 +20,12 @@ fi
 echo "linking Grav Userfolder to Volume"
 ln -s /var/www/html/user /srv/grav-data/user
 echo "installing Grav"
-bin/grav install -n >/dev/null
+chown -RL www-data:www-data /var/www/html
+bin/grav install -n &>/dev/null
 echo "installing Admin Plugin"
 bin/gpm install admin -y >/dev/null
+touch /var/lib/nginx/logs/error.log
+chown -R www-data:www-data /var/lib/nginx/logs
+chown -R www-data:www-data /var/log/php7
+chown -R www-data:www-data /var/log/nginx
+chown -R www-data:www-data /var/tmp/nginx
